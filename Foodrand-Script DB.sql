@@ -7,7 +7,7 @@ CREATE TABLE `Menu` (
   `MenuId` INT(10) NOT NULL AUTO_INCREMENT,
   `MenuName` VARCHAR(100) NOT NULL,
   `MenuImg` VARCHAR(1000) NOT NULL,
-  `Calories` DECIMAL(4,2) NOT NULL,
+  `Calories` DECIMAL(6,2) NOT NULL,
   `Preparation` VARCHAR(4000) NOT NULL,
   PRIMARY KEY (`MenuId`));
 
@@ -2998,11 +2998,11 @@ insert into `Recipe` values
 (27, 23, '3'),
 (34, 23, '1 1/2'),
 (48, 23, '3'),
-(53, 23, '1 1/2'),
+(53, 23, '5'),
 (54, 23, '2'),
 (111, 23, '100'),
 (112, 23, '100'),
-(113, 23, '1';
+(113, 23, '1');
 
 insert into `Recipe` values
 /*ขนมจีนน้ำเงี้ยว*/
@@ -3247,7 +3247,7 @@ insert into `Recipe` values
 (54, 42, '1/4'),
 (80, 42, '1/4'),
 (136, 42, '20'),
-(136, 42, '10'),
+(137, 42, '10'),
 (181, 42, '250'),
 (182, 42, '350'),
 (183, 42, '45'),
