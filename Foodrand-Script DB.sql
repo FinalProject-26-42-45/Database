@@ -62,13 +62,6 @@ CREATE TABLE `RandomStatistics` (
     FOREIGN KEY (`HistoryId`)
     REFERENCES `MenuHistory` (`HistoryId`));
 
-DROP TABLE IF EXISTS `Ingredients` ;
-CREATE TABLE `Ingredients` (
-  `IngredientId` INT(10) NOT NULL AUTO_INCREMENT,
-  `IngredientName` VARCHAR(100) NOT NULL,
-  `Unit` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`IngredientId`));
-
 DROP TABLE IF EXISTS `MenuCategory` ;
 CREATE TABLE `MenuCategory` (
   `CategoryId` INT(10) NOT NULL,
@@ -88,19 +81,6 @@ CREATE TABLE IF NOT EXISTS `CategoryOfMenu` (
     FOREIGN KEY (`CategoryId`)
     REFERENCES `MenuCategory` (`CategoryId`));
 
-DROP TABLE IF EXISTS `Recipe` ;
-CREATE TABLE `Recipe` (
-  `RecipeId` INT(10) NOT NULL AUTO_INCREMENT,
-  `IngredientId` INT(10) NOT NULL,
-  `MenuId` INT(10) NOT NULL,
-  `Quantity` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`RecipeId`),
-  CONSTRAINT `fk_Recipe_Ingredient`
-    FOREIGN KEY (`IngredientId`)
-    REFERENCES `Ingredients` (`IngredientId`),
-  CONSTRAINT `fk_Recipe_Menu`
-    FOREIGN KEY (`MenuId`)
-    REFERENCES `Menu` (`MenuId`) on delete cascade);
 
 insert into Menu values
 (1, 'ต้มยำกุ้งน้ำข้น', '1-1.jpg', 300, 
