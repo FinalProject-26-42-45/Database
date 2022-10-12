@@ -25,7 +25,7 @@ CREATE TABLE `Users` (
   `Firstname` VARCHAR(50) NOT NULL,
   `Lastname` VARCHAR(50) NOT NULL,
   `Username` VARCHAR(30) NOT NULL,
-  `Password` VARCHAR(20) NOT NULL,
+  `Password` VARCHAR(1000) NOT NULL,
   `DOB` DATE NOT NULL,
   `Gender` VARCHAR(10) NOT NULL,
   `Email` VARCHAR(50) NOT NULL,
@@ -41,26 +41,20 @@ CREATE TABLE `Users` (
 DROP TABLE IF EXISTS `MenuHistory` ;
 CREATE TABLE `MenuHistory` (
   `HistoryId` INT(100) NOT NULL AUTO_INCREMENT,
-  `MenuName` VARCHAR(100) NULL,
+  `MenuName` VARCHAR(100) NOT NULL,
+  `HistoryCount` INT(10) NOT NULL,
   `UserId` INT(10) NOT NULL,
-  PRIMARY KEY (`HistoryId`),
-  CONSTRAINT `fk_MenuHistory_Users`
-    FOREIGN KEY (`UserId`)
-    REFERENCES `Users` (`UserId`));
+  PRIMARY KEY (`HistoryId`));
 
 DROP TABLE IF EXISTS `RandomStatistics` ;
 CREATE TABLE `RandomStatistics` (
   `RandomId` INT(100) NOT NULL AUTO_INCREMENT,
-  `Statistic` INT(100) NOT NULL,
-  `MenuId` INT(10) NOT NULL,
-  `HistoryId` INT(100) NOT NULL,
+  `RandomCount` INT(10) NOT NULL,
+  `MenuId` INT(10) NOT NULL,  
   PRIMARY KEY (`RandomId`),
   CONSTRAINT `fk_RandomStatistics_Menu`
     FOREIGN KEY (`MenuId`)
-    REFERENCES `Menu` (`MenuId`),
-  CONSTRAINT `fk_RandomStatistics_MenuHistory`
-    FOREIGN KEY (`HistoryId`)
-    REFERENCES `MenuHistory` (`HistoryId`));
+    REFERENCES `Menu` (`MenuId`));
 
 DROP TABLE IF EXISTS `MenuCategory` ;
 CREATE TABLE `MenuCategory` (
